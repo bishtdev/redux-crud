@@ -47,7 +47,7 @@ const Update = () => {
                 type="email"
                 name="email"
                 value={updateData && updateData.email}
-                // onChange={getUserData}
+                onChange={newData}
                 className="border w-full py-2 px-2 rounded shadow hover:border-indigo-600 ring-1 ring-inset ring-gray-300 font-mono"
               />
             </div>
@@ -57,7 +57,7 @@ const Update = () => {
                 type="age"
                 name="age"
                 value={updateData && updateData.age}
-                // onChange={getUserData}
+                onChange={newData}
                 className="border w-full py-2 px-2 rounded shadow hover:border-indigo-600 ring-1 ring-inset ring-gray-300 font-mono"
               />
             </div>
@@ -67,7 +67,7 @@ const Update = () => {
                 type="radio"
                 value="male" 
                 checked={updateData && updateData.gender === "male"}
-                // onChange={getUserData}
+                onChange={newData}
               />
               <label htmlFor=""> male </label>
             </div>
@@ -77,7 +77,7 @@ const Update = () => {
                 type="radio"
                 value="female"
                 checked={updateData && updateData.gender === "female"}
-                // onChange={getUserData}
+                onChange={newData}
               />
               <label htmlFor=""> female </label>
             </div>
