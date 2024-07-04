@@ -55,6 +55,7 @@ const Read = () => {
               >
                 View
               </button>
+              <Link to={`/edit/${ele.id}`}>
               <button
                 className="select-none rounded-lg bg-brown-gradient py-2 md:py-3 px-4 md:px-6 text-center align-middle font-sans text-xs md:text-sm font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-[#7e4f42] focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full md:w-auto md:mr-3 mb-2"
                 type="button"
@@ -62,6 +63,7 @@ const Read = () => {
               >
                 Edit
               </button>
+              </Link>
               <Link onClick={()=> dispatch(deleteUser(ele.id))}>
               <button
                 className="select-none rounded-lg bg-brown-gradient py-2 md:py-3 px-4 md:px-6 text-center align-middle font-sans text-xs md:text-sm font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-[#7e4f42] focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none w-full md:w-auto mb-2"
