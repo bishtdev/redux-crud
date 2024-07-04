@@ -99,8 +99,6 @@ export const userDetail = createSlice({
 
           state.users = state.users.filter((ele)=> ele.id !== id)
         }
-        
-        
       })
       .addCase(deleteUser.rejected, (state, action) => {
         state.loading = false;

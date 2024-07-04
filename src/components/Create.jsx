@@ -28,7 +28,7 @@ const Create = () => {
       <form onSubmit={handleSubmit}>
         <div className="w-full max-w-lg px-10 py-8 mx-auto bg-white border rounded-lg shadow-2xl flex">
           <div className="max-w-md mx-auto space-y-3">
-            <h3 className="text-lg font-semibold">Your Information</h3>
+            <h3 className="text-xl font-semibold">Your Information</h3>
             <div>
               <label className="block py-1">Your Name</label>
               <input
