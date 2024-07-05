@@ -1,17 +1,24 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { searchUser } from "../features/userDetailSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
 
-  const allUsers = useSelector((state) => state.app.users)
+  const allUsers = useSelector((state) => state.app.users);
 
+  const [searchData, setSearchData] = useState("");
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  useEffect(() => {
+    dispatch(searchUser(searchData));
+  }, [searchData]);
 
   return (
     <nav className="bg-[#c2bfbf] z-20 flex flex-col sm:flex-row justify-between items-center p-2 sm:p-4">
@@ -25,16 +32,33 @@ const Navbar = () => {
         </button>
       </div>
       <div
-        className={`flex flex-col sm:flex-row items-center w-full sm:w-auto ${isMobileMenuOpen ? 'block' : 'hidden'} sm:block`}
+        className={`flex flex-col sm:flex-row items-center w-full sm:w-auto ${
+          isMobileMenuOpen ? "block" : "hidden"
+        } sm:block`}
       >
         <ul className="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
-          <li><Link to="/" className="text-[#695557] font-extrabold text-lg hover:text-[#4fb53a]">Create Post</Link></li>
-          <li><Link to="/read" className="text-[#695557] font-extrabold text-lg hover:text-[#4fb53a]">All Posts ({allUsers.length})</Link></li>
+          <li>
+            <Link
+              to="/"
+              className="text-[#695557] font-extrabold text-lg hover:text-[#4fb53a]"
+            >
+              Create Post
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/read"
+              className="text-[#695557] font-extrabold text-lg hover:text-[#4fb53a]"
+            >
+              All Posts ({allUsers.length})
+            </Link>
+          </li>
         </ul>
         <input
           className="w-full sm:w-[14rem] h-8 p-2 border border-[#353333] rounded mt-2 sm:mt-0"
           type="text"
           placeholder="Search"
+          onChange={(e) => setSearchData(e.target.value)}
         />
       </div>
     </nav>
